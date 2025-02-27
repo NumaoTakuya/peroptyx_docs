@@ -1,0 +1,42 @@
+【1. Relevance (Relatedness)】  
+(Target: To evaluate to what extent the search result satisfies the user's intent with respect to the user's query)
+
+| Level        | Specific Conditions                                                                                                                                                                                                                                                                                                                                                                        | Examples                                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Navigational | When the user's query clearly indicates "a unique address" or "a one-of-a-kind facility/POI" and the search result exactly matches that query. In other words, if the user is looking for a specific street number, building name, or famous landmark and the search result perfectly corresponds to it, it is considered Navigational.                                                    | For example, searching for "Eiffel Tower" and the actual Eiffel Tower is displayed.                                    |
+| Excellent    | When the user's query is not "a unique address or proper noun" and the search result is judged to satisfy the user's intent (e.g., chain store or category search) with very high accuracy. However, if the query itself is unique, Navigational is prioritized.                                                                                                                           | For example, searching for "Starbucks" and major stores are displayed with accurate information.                       |
+| Good         | When the search result partially meets the user's query intent, but the location of the search result is somewhat distant from what the user expects, or the prominence (recognition/importance) is low, etc., it is judged to be slightly inferior. In such cases, the reason for demotion (either "User Intent issue" or "Distance/Prominence issue" or both) must be explicitly stated. | For example, when a store several hundred meters away from the queried store is displayed.                             |
+| Acceptable   | When the search result technically meets the user's query intent, but lacks detail or convenience in the information. For instance, if only an address is displayed and supplementary information is missing, it may be judged as not fully supporting the primary intent.                                                                                                                 | For example, when only an address is displayed in response to the query, with no additional supplementary information. |
+| Bad          | When the search result does not meet the user's query intent at all. That is, when the content of the search result is for the wrong region or belongs to a completely different category of facility, and is deemed unrelated to the information the user is seeking.                                                                                                                     | For example, when searching for "New York" but a facility in Los Angeles is displayed.                                 |
+
+【Additional Details (Relevance)】  
+– In this evaluation criteria, each result should be assessed comprehensively based on the "degree of fulfillment of the user’s intent," "prominence (recognition/importance)," and "distance from the user/viewport."  
+– Refer to the detailed criteria for connecting the result and the query (such as General Connection, abbreviations/aliases, category, spelling correction, transit-related intent, handling of special characters, connection with address results, etc.). For example, in the case of a "Good" evaluation, consider situations where the result is secondary to the user's primary intent (e.g., when a more appropriate store exists nearby).  
+– The reason(s) for demotion must explicitly state "User Intent issue" and/or "Distance/Prominence issue."  
+– It is also important to consider the user/viewport location information, the freshness of the view (Fresh/Stale), and the characteristics of the target area (urban, suburban, rural, etc.).
+
+––––––––––––––––––––––––––––––––––––––––––––––
+【Regarding "Result name/title is in unexpected language or script"】  
+(Target: To evaluate whether the name/title of the search result matches the language/script expected based on the test locale, the query, or the region of the result)
+
+・If the name of the search result differs from the language/script expected based on the user's query and the test locale, this issue should be flagged.  
+【Examples】  
+　・For example, if the test locale is English and the query is "market," but the search result's name is in Burmese (e.g., "ေစျးကွက္"), then it is an issue.
+
+【Additional Details (Language/Script of Result Name/Title)】  
+– The expected language is clearly indicated based on the test locale (e.g., en_US), the query language, and the result’s location.  
+– In the case of official brand names or chains, the officially adopted name in the local area is acceptable (e.g., McDonald's may be displayed according to the local language or official logo).  
+– If the result deviates significantly from the expected language/script, the user will not be able to understand the content; therefore, the corresponding check should be performed immediately, and no further evaluation items are necessary.
+
+––––––––––––––––––––––––––––––––––––––––––––––
+【Regarding "Business/POI is closed or does not exist"】  
+(Target: To evaluate whether the business/POI in the search result actually exists in relation to the user's query)
+
+・If sufficient investigation confirms that the business/POI in the search result is closed or does not exist, this issue should be flagged. However, even if the search result does not exist, if it still aligns with the user’s intent, it should be rated highly—with the reason for demotion noted.  
+【Examples】  
+　・For example, if "PERMANENT_CLOSURE" is displayed in the search result and the closure is confirmed on the official website or other reliable sources.
+
+【Additional Details (Verification of Business/POI Existence)】  
+– The existence of the business/POI in the real world should be verified through reliable sources such as official websites, government information, or postal services.  
+– Temporary closures (e.g., due to construction or remodeling) should be treated as "existing" at the time of evaluation, even if the search result shows a closed status; the accuracy of other data (name, address, pin location) should be evaluated separately.  
+– Even if "PERMANENT_CLOSURE" is displayed, further investigation should determine whether the business is actually closed, and an appropriate demotion reason should be noted in the comments.

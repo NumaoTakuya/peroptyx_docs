@@ -1,0 +1,16 @@
+【4. Pin Accuracy (Accuracy of the Pin Location)】  
+(Target: To evaluate to what extent the pin on the map in the search result accurately indicates the actual location of the facility in relation to the user's query)
+
+| Evaluation Level | Specific Conditions                                                                                                                                                                                                 | Examples                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Perfect          | When the pin in the search result is placed at the exact location of the facility (for example, near the entrance) and almost exactly matches the actual location in relation to the user's query.                  | The pin is displayed in front of the building's main entrance.                      |
+| Approximate      | When the pin in the search result is within the correct area for the user's query but shows a slight deviation (e.g., within a 50m error margin within the same block), being slightly off from the exact location. | The pin is located near the target building within the same block but slightly off. |
+| Next Door        | When the pin in the search result indicates an adjacent building or facility to the target facility, showing a slight deviation from the target facility in relation to the user's query.                           | The pin is placed on a building next to the target building.                        |
+| Wrong            | When the pin in the search result is significantly incorrect for the user's query and is placed in a completely different location from the target facility.                                                        | The pin is displayed on a different street or in another city.                      |
+| Can't Verify     | When there is insufficient map information available to determine the accuracy of the pin location in the search result for the user's query, making it difficult to confirm the exact location.                    | When the map is blurry, making it impossible to determine the exact location.       |
+
+【Additional Details (Pin Accuracy)】  
+– In these evaluation criteria, the pin location is evaluated based on whether it is placed in a position that is easily recognizable by the user, such as near the actual entrance or central area of the facility.  
+– It is recommended to use measurement tools (e.g., a ruler icon) to confirm the error margin relative to the actual location (for example, a deviation within 50m within the same block).  
+– If the pin indicates adjacent buildings or nearby areas, it should be judged as "Next Door," and if it is clearly different, it should be evaluated as "Wrong."  
+– If the map’s resolution or displayed information is insufficient, mark it as "Can't Verify" and note that an accurate location determination is difficult.
